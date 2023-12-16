@@ -8,10 +8,9 @@ import java.util.stream.IntStream;
 
 public class Calendar {
 
-
     private final Month month;
-    private final DayOfWeek startingDay;
 
+    private final DayOfWeek startingDay;
     private final List<Day> days = new ArrayList<>();
 
     public Calendar(int month, String startingDay) {
@@ -28,20 +27,24 @@ public class Calendar {
 
     }
 
-    public void initializeCalendar() {
+    private void initializeCalendar() {
         AtomicReference<Integer> dayOfWeekIndex = new AtomicReference<>(this.startingDay.getOrder());
         Integer countOfDayInThisMonth = this.month.getDays();
 
-        IntStream.range(1, countOfDayInThisMonth)
+        IntStream.range(1, countOfDayInThisMonth+1)
                 .sequential()
                 .forEach(count -> addDayInfo(dayOfWeekIndex, count));
 
         initializeHoliday();
     }
 
+    public Month getMonth() {
+        return month;
+    }
+
     private boolean addDayInfo(AtomicReference<Integer> dayOfWeekIndex, int count) {
         return days.add(new Day(count, false, DayOfWeek.findByOrder(
-                dayOfWeekIndex.getAndSet(dayOfWeekIndex.get() + 1))));
+                dayOfWeekIndex.getAndSet((dayOfWeekIndex.get() + 1)%7))));
     }
 
     private void initializeHoliday() {
@@ -63,5 +66,23 @@ public class Calendar {
         return day.getDayOfWeek().equals(DayOfWeek.SUN) || day.getDayOfWeek().equals(DayOfWeek.SAT);
     }
 
+    public List<Day> getDays() {
+        return days;
+    }
+
+
+    public long getNumberOfHoliday(){
+        return this.days
+                .stream()
+                .filter(Day::isHoliday)
+                .count();
+    }
+
+
+    public long getNumberOfWeekday(){
+        return ((long)this.days.size()) - getNumberOfHoliday();
+    }
 
 }
+
+
