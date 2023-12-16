@@ -6,7 +6,7 @@ public interface ViewConstant {
     String INSERT_HOLIDAY_MEMBER_MESSAGE = "휴일 비상 근무 순번대로 사원 닉네임을 입력하세요> ";
 
     String PRINT_DAILY_INFO_MESSAGE = "{0}월 {1}일 {2} {3}";
-    String PRINT_HOLIDAY_INFO_MESSAGE = "{0}월 {1}월 {2}(휴일) {3}";
+    String PRINT_HOLIDAY_INFO_MESSAGE = "{0}월 {1}일 {2}(휴일) {3}";
 
     String DELIMITER = "@@";
 
