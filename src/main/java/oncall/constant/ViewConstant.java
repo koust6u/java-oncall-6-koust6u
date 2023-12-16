@@ -8,4 +8,7 @@ public interface ViewConstant {
     String PRINT_DAILY_INFO_MESSAGE = "{0}월 {1}일 {2} {3}";
     String PRINT_HOLIDAY_INFO_MESSAGE = "{0}월 {1}월 {2}(휴일) {3}";
 
+    String DELIMITER = "@@";
+
+    String BLANK = "";
 }
