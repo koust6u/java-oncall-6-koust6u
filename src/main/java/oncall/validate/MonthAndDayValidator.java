@@ -5,7 +5,6 @@ import static oncall.constant.ViewConstant.INSERT_MONTH_INFO;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import oncall.constant.ViewConstant;
 import oncall.data.DayOfWeek;
 import oncall.utils.ParseUtil;
 
@@ -53,7 +52,7 @@ public class MonthAndDayValidator extends Validator{
     }
     private void isValidDayFormat(String dayOfWeek){
         Arrays.stream(DayOfWeek.values())
-                .map(DayOfWeek::getNameOfDaya)
+                .map(DayOfWeek::getNameOfDay)
                 .filter(day-> day.equals(dayOfWeek))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("잘못된 요일 입력입니다. 다시 입력해주세요."));

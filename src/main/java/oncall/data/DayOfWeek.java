@@ -10,13 +10,13 @@ public enum DayOfWeek {
     SUN("일");
 
 
-    private final String nameOfDaya;
+    private final String nameOfDay;
 
     DayOfWeek(String nameOfDaya) {
-        this.nameOfDaya = nameOfDaya;
+        this.nameOfDay = nameOfDaya;
     }
 
-    public String getNameOfDaya() {
-        return nameOfDaya;
+    public String getNameOfDay() {
+        return nameOfDay;
     }
 }
