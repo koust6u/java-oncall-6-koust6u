@@ -10,8 +10,6 @@ import oncall.data.Member;
 public class WorkScheduler {
 
     private final Calendar calendar;
-    private final List<Member> scheduleOfWeekDay = new ArrayList<>();
-    private final List<Member> scheduleOfHoliday = new ArrayList<>();
 
     public WorkScheduler(Calendar calendar) {
         this.calendar = calendar;
